@@ -28,10 +28,11 @@ jobs:
       - name: Setup ErfanGSIs Tools
         run: |
           cd ${{ github.workspace }}
-          pip uninstall protobuf
           pip install protobuf==3.17.3
+          pip3 uninstall protobuf
+          pip3 install protobuf==3.17.3
           python -c "import update_metadata_pb2"
-          pip uninstall protobuf
+          python3 -c "import update_metadata_pb2"
           git clone --recurse-submodules "${{ steps.config.outputs.tool_repo }}"
           bash ErfanGSIs/setup.sh
           sed -i '$d' ErfanGSIs/url2GSI.sh
