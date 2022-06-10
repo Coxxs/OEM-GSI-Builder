@@ -9,14 +9,10 @@ defaults:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-18.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
       - name: Load Configuration
         uses: falti/dotenv-action@v0.2.5
         id: config
