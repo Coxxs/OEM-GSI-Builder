@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
       - name: Load Configuration
         uses: falti/dotenv-action@v0.2.5
         id: config
@@ -27,7 +31,6 @@ jobs:
           required "${{ steps.config.outputs.output_type }}" "OUTPUT_TYPE config"
       - name: Setup ErfanGSIs Tools
         run: |
-          sudo apt-get install python3-pip -y
           git clone --recurse-submodules "${{ steps.config.outputs.tool_repo }}"
           bash ErfanGSIs/setup.sh
           sed -i '$d' ErfanGSIs/url2GSI.sh
