@@ -52,7 +52,6 @@ jobs:
         run: |
           mkdir build/
           sudo mv ErfanGSIs/output/*.img build/
-          gzip -r build/
           sudo mv ErfanGSIs/output/*.txt build/
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
