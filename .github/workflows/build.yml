@@ -29,7 +29,7 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           pip install protobuf==3.17.3
-          python -c "import update_metadata_pb2"
+          python -c "import fckprotobuf"
           git clone --recurse-submodules "${{ steps.config.outputs.tool_repo }}"
           bash ErfanGSIs/setup.sh
           sed -i '$d' ErfanGSIs/url2GSI.sh
